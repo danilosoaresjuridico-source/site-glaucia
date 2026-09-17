@@ -1,0 +1,47 @@
+.legal,
+.identity,
+.bridge {
+  border-radius: 18px;
+  margin-top: 2rem;
+}
+
+.legal {
+  background: var(--brand-sand);
+  border-left: 3px solid var(--brand-gold);
+  color: #3e4d44;
+  font-size: var(--type-legal);
+  line-height: var(--line-reading);
+  padding: 1.4rem 1.6rem;
+}
+
+.identity {
+  color: var(--brand-deep-green);
+  font-size: var(--type-ui);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bridge {
+  background: var(--brand-deep-green);
+  color: var(--brand-light-sand);
+  padding: clamp(1.8rem, 5vw, 3rem);
+}
+
+.bridge p {
+  line-height: var(--line-reading);
+}
+
+.bridge h2 {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  margin-bottom: 1rem;
+}
+
+.bridge p + p {
+  margin-top: 1rem;
+}
+
+.bridge a {
+  color: #f0c87f;
+  font-weight: 500;
+}

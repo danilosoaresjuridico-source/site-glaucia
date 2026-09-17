@@ -1,0 +1,23 @@
+.footer {
+  background: var(--brand-ink);
+  color: #b6c0b9;
+  padding: 2.8rem 5vw;
+  text-align: center;
+}
+
+.name {
+  color: var(--brand-light-sand);
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.7rem;
+}
+
+.name em {
+  color: var(--brand-gold);
+}
+
+.footer p {
+  font-size: var(--type-footer);
+  line-height: var(--line-reading);
+  margin-top: 0.7rem;
+  margin-inline: auto;
+}

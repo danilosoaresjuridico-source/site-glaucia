@@ -1,0 +1,138 @@
+.transition {
+  background: linear-gradient(180deg, #e4ddd0 0%, var(--brand-light-sand) 46%, var(--brand-white) 100%);
+  height: clamp(72px, 8vw, 112px);
+  overflow: hidden;
+  pointer-events: none;
+  position: relative;
+  width: 100%;
+}
+
+.art {
+  display: block;
+  height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.waves {
+  animation: waveDrift 10.8s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+.waveDeep,
+.waveSage,
+.waveGold {
+  fill: none;
+  stroke-linecap: round;
+  animation: waveOscillation 9.8s ease-in-out infinite alternate;
+  stroke-width: 1.35;
+  transform-box: fill-box;
+  transform-origin: center;
+  vector-effect: non-scaling-stroke;
+}
+
+.waveDeep {
+  stroke: url("#frequency-deep");
+}
+
+.waveSage {
+  animation-delay: -3.2s;
+  animation-duration: 10.6s;
+  stroke: url("#frequency-sage");
+  stroke-width: 1.1;
+}
+
+.waveGold {
+  animation-delay: -6.4s;
+  animation-duration: 11.2s;
+  stroke: url("#frequency-gold");
+  stroke-width: 1;
+}
+
+.pulseHalo {
+  fill: #b0894a;
+  filter: url("#frequency-glow");
+  opacity: 0.22;
+}
+
+.pulseGlow {
+  fill: #b0894a;
+  opacity: 0.42;
+}
+
+.pulseCore {
+  fill: #b0894a;
+  opacity: 0.96;
+}
+
+.pulse {
+  animation: pulseBreathe 3.8s ease-in-out infinite;
+}
+
+.staticPulse {
+  display: none;
+}
+
+@keyframes waveDrift {
+  from {
+    opacity: 0.88;
+    transform: translateY(2.5px) scaleY(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-2.5px) scaleY(1.035);
+  }
+}
+
+@keyframes waveOscillation {
+  from {
+    transform: translateY(-2px) scaleY(0.97);
+  }
+
+  to {
+    transform: translateY(2px) scaleY(1.035);
+  }
+}
+
+@keyframes pulseBreathe {
+  0%,
+  100% {
+    opacity: 0.76;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 520px) {
+  .transition {
+    height: 72px;
+  }
+
+  .waveDeep,
+  .waveSage,
+  .waveGold {
+    stroke-width: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waves,
+  .waveDeep,
+  .waveSage,
+  .waveGold,
+  .pulse {
+    animation: none;
+  }
+
+  .movingPulse {
+    display: none;
+  }
+
+  .staticPulse {
+    display: inline;
+  }
+}

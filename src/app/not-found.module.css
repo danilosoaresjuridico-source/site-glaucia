@@ -1,0 +1,38 @@
+.page {
+  align-items: center;
+  background: linear-gradient(165deg, var(--brand-light-sand), var(--brand-sand));
+  display: flex;
+  min-height: 78vh;
+  padding: 9rem 5vw 5rem;
+  text-align: center;
+}
+
+.content {
+  margin-inline: auto;
+  max-width: 680px;
+}
+
+.code {
+  color: var(--brand-gold-text);
+  font-size: var(--type-ui);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.page h1 {
+  color: var(--brand-deep-green);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  margin-top: 0.7rem;
+}
+
+.page p {
+  margin: 1rem auto 2rem;
+  max-width: 50ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+}
