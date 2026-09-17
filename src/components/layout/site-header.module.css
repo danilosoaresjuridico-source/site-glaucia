@@ -1,0 +1,140 @@
+.header {
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(253, 252, 250, 0.94);
+  border-bottom: 1px solid rgba(34, 57, 47, 0.08);
+  display: flex;
+  inset: 0 0 auto;
+  justify-content: space-between;
+  min-height: 78px;
+  padding: 0.8rem 5vw;
+  position: fixed;
+  z-index: 100;
+}
+
+.logo {
+  color: var(--brand-deep-green);
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.65rem;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  text-decoration: none;
+}
+
+.logo em {
+  color: var(--brand-gold);
+  font-style: italic;
+}
+
+.logo small {
+  color: #526158;
+  display: block;
+  font-family: var(--font-jost), sans-serif;
+  font-size: var(--type-ui);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  margin-top: 0.15rem;
+  text-transform: uppercase;
+}
+
+.nav {
+  align-items: center;
+  display: flex;
+  gap: 1.65rem;
+  list-style: none;
+}
+
+.nav a {
+  color: var(--brand-ink);
+  font-size: var(--type-ui);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav a:hover {
+  color: var(--brand-gold-text);
+}
+
+.nav .cta {
+  background: var(--brand-deep-green);
+  border-radius: 999px;
+  color: #fff;
+  padding: 0.55rem 1.15rem;
+}
+
+.menuButton {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: none;
+  height: 48px;
+  padding: 10px;
+  width: 48px;
+  z-index: 102;
+}
+
+.menuButton span {
+  background: var(--brand-deep-green);
+  display: block;
+  height: 2px;
+  margin: 5px auto;
+  transition: transform 180ms ease, opacity 180ms ease;
+  width: 25px;
+}
+
+.menuButtonOpen span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menuButtonOpen span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuButtonOpen span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 820px) {
+  .header {
+    min-height: 72px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    max-width: min(68vw, 220px);
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .nav {
+    align-items: center;
+    background: var(--brand-light-sand);
+    flex-direction: column;
+    gap: 1.8rem;
+    inset: 0;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    transform: translateX(100%);
+    transition: opacity 220ms ease, transform 220ms ease;
+    visibility: hidden;
+    z-index: 101;
+  }
+
+  .navOpen {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    visibility: visible;
+  }
+
+  .nav a {
+    font-size: var(--type-body);
+  }
+}

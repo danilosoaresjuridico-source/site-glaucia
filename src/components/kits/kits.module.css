@@ -1,0 +1,355 @@
+.page {
+  background: var(--brand-white);
+  min-height: 100vh;
+}
+
+.mapHero,
+.detailHero {
+  background: linear-gradient(165deg, var(--brand-light-sand), var(--brand-sand));
+  padding: 9rem 0 4.5rem;
+}
+
+.mapHero h1,
+.detailHero h1 {
+  color: var(--brand-deep-green);
+  font-size: clamp(2.7rem, 7vw, 5rem);
+  max-width: 15ch;
+}
+
+.mapHero h1 {
+  margin-bottom: 1rem;
+}
+
+.lead {
+  color: #405047;
+  font-size: 1em;
+  line-height: var(--line-reading);
+  max-width: 65ch;
+}
+
+.lead + .lead {
+  margin-top: 0.8rem;
+}
+
+.section {
+  padding-block: clamp(3.8rem, 8vw, 6rem);
+}
+
+.section h2 {
+  color: var(--brand-deep-green);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.6rem;
+}
+
+.sectionIntro {
+  color: #4a584f;
+  line-height: var(--line-reading);
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+}
+
+.card {
+  background: var(--kit-color);
+  border: 1px solid rgba(26, 74, 58, 0.15);
+  border-radius: 22px;
+  color: var(--kit-text);
+  display: flex;
+  flex-direction: column;
+  min-height: 410px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.card:hover,
+.card:focus-visible {
+  box-shadow: 0 20px 44px rgba(34, 57, 47, 0.18);
+  transform: translateY(-4px);
+}
+
+.cardSoon {
+  background: color-mix(in srgb, var(--kit-color) 58%, white);
+}
+
+.visual {
+  align-items: center;
+  display: flex;
+  height: 190px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.visual img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.colorField {
+  align-items: center;
+  background: radial-gradient(circle at 48% 45%, rgba(255, 255, 255, 0.55), transparent 45%), var(--kit-color);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.colorField strong {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  font-weight: 500;
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.badge {
+  align-self: flex-start;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: var(--type-ui);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 0.2rem 0.65rem;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  font-size: var(--type-card-title);
+  margin: 0.8rem 0 0.5rem;
+}
+
+.cardPhrase {
+  font-family: var(--font-cormorant), serif;
+  font-size: var(--type-card);
+  font-style: italic;
+  line-height: var(--line-reading);
+}
+
+.cardLink {
+  font-size: var(--type-ui);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  margin-top: auto;
+  padding-top: 1rem;
+  text-transform: uppercase;
+}
+
+.features {
+  background: var(--brand-deep-green);
+  color: var(--brand-light-sand);
+}
+
+.features h2,
+.signature h2 {
+  color: inherit;
+}
+
+.featureGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  margin-top: 2rem;
+}
+
+.featureGrid li {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  padding: 1.2rem;
+  line-height: var(--line-reading);
+}
+
+.delivery {
+  color: #d5ddd8;
+  margin-top: 1.5rem;
+}
+
+.signature {
+  background: var(--brand-light-sand);
+}
+
+.signature p {
+  max-width: 70ch;
+}
+
+.signatureLine {
+  color: var(--brand-deep-green);
+  font-size: var(--type-ui);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-top: 1.2rem;
+  text-transform: uppercase;
+}
+
+.compliance {
+  padding-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.breadcrumbs {
+  color: #526158;
+  font-size: var(--type-ui);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumbs a {
+  color: var(--brand-deep-green);
+}
+
+.detailHero {
+  background: linear-gradient(165deg, color-mix(in srgb, var(--kit-color) 58%, white), var(--brand-light-sand));
+}
+
+.detailGrid {
+  align-items: center;
+  display: grid;
+  gap: clamp(2rem, 7vw, 5rem);
+  grid-template-columns: 1.05fr 0.95fr;
+}
+
+.detailHero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.4rem);
+}
+
+.detailPhrase {
+  color: var(--kit-text);
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-style: italic;
+  line-height: var(--line-reading);
+  margin-top: 1.2rem;
+}
+
+.detailSupport {
+  color: #405047;
+  line-height: var(--line-reading);
+  margin-top: 0.8rem;
+  max-width: 60ch;
+}
+
+.detailVisual {
+  aspect-ratio: 3 / 4;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 180px 180px 24px 24px;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.detailVisual img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.detailColor {
+  align-items: center;
+  background: radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.72), transparent 42%), var(--kit-color);
+  color: var(--kit-text);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.detailColor strong {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(2.6rem, 7vw, 4.5rem);
+  font-weight: 500;
+  max-width: 7ch;
+}
+
+.territory {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
+  margin-top: 1.7rem;
+}
+
+.territory li {
+  background: rgba(255, 255, 255, 0.62);
+  border-radius: 999px;
+  color: var(--kit-text);
+  font-size: var(--type-ui);
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+}
+
+.detailContent {
+  padding-block: clamp(3.5rem, 8vw, 5.5rem);
+}
+
+.contentGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 2rem;
+}
+
+.element {
+  border: 1px solid rgba(34, 57, 47, 0.12);
+  border-radius: 16px;
+  padding: 1.3rem;
+}
+
+.element h3 {
+  color: var(--brand-deep-green);
+  font-size: var(--type-card-title);
+}
+
+.element p {
+  margin-top: 0.4rem;
+}
+
+.routine {
+  margin-top: 1.5rem;
+}
+
+.purchase {
+  background: color-mix(in srgb, var(--kit-color) 46%, white);
+  border-radius: 22px;
+  margin-top: 2.5rem;
+  padding: clamp(1.8rem, 5vw, 2.8rem);
+}
+
+.purchase h2 {
+  font-size: 2rem;
+}
+
+.price {
+  color: var(--kit-text);
+  font-family: var(--font-cormorant), serif;
+  font-size: 2rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.pending {
+  color: #4c594f;
+  font-size: var(--type-legal);
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 760px) {
+  .detailGrid,
+  .featureGrid,
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .detailVisual {
+    margin-inline: auto;
+    max-width: 330px;
+    width: 100%;
+  }
+}

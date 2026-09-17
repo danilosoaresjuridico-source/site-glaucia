@@ -1,0 +1,474 @@
+.hero {
+  background: linear-gradient(165deg, var(--brand-light-sand), var(--brand-sand) 65%, #e4ddd0);
+  min-height: 100svh;
+  overflow: hidden;
+  padding: 8.5rem 0 5.5rem;
+  position: relative;
+}
+
+.heroGrid {
+  align-items: center;
+  display: grid;
+  gap: clamp(2rem, 6vw, 4rem);
+  grid-template-columns: 1.1fr 0.9fr;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  color: var(--brand-deep-green);
+  font-size: clamp(2.8rem, 6.5vw, 5rem);
+  max-width: 15ch;
+}
+
+.hero h1 em {
+  color: var(--brand-gold);
+  font-style: italic;
+}
+
+.lead {
+  color: #3d4a41;
+  font-size: 1em;
+  line-height: var(--line-reading);
+  margin-top: 1.5rem;
+  max-width: 58ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2rem;
+}
+
+.heroImage {
+  position: relative;
+}
+
+.heroImage::before,
+.heroImage::after {
+  border: 1px solid rgba(176, 137, 74, 0.52);
+  border-radius: 50%;
+  content: "";
+  inset: 8% -8% -5% 5%;
+  position: absolute;
+}
+
+.heroImage::after {
+  border-color: rgba(125, 146, 132, 0.6);
+  inset: -4% 4% 6% -8%;
+}
+
+.heroImage img {
+  aspect-ratio: 4 / 4.6;
+  border: 6px solid var(--brand-white);
+  border-radius: 190px 190px 24px 24px;
+  box-shadow: 0 24px 60px rgba(34, 57, 47, 0.28);
+  object-fit: cover;
+  object-position: center 20%;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.section {
+  padding-block: clamp(4rem, 8vw, 6rem);
+}
+
+.sectionAlt {
+  background: linear-gradient(180deg, var(--brand-light-sand), var(--brand-white));
+}
+
+.sectionDark {
+  background: var(--brand-deep-green);
+  color: var(--brand-light-sand);
+}
+
+.sectionHeader {
+  margin-bottom: 2.5rem;
+  max-width: 62ch;
+}
+
+.sectionHeader h2 {
+  color: var(--brand-deep-green);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+}
+
+.sectionDark .sectionHeader h2 {
+  color: var(--brand-light-sand);
+}
+
+.sectionHeader p:last-child {
+  margin-top: 0.8rem;
+}
+
+.aboutGrid,
+.contactGrid,
+.practice {
+  align-items: center;
+  display: grid;
+  gap: clamp(2.2rem, 6vw, 4rem);
+  grid-template-columns: 1fr 1fr;
+}
+
+.aboutImage img {
+  aspect-ratio: 4 / 4.25;
+  border-radius: 180px 180px 16px 16px;
+  box-shadow: 0 20px 50px rgba(30, 39, 33, 0.26);
+  filter: grayscale(1);
+  object-fit: cover;
+}
+
+.aboutCopy h2 {
+  color: var(--brand-deep-green);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.aboutCopy p + p {
+  margin-top: 1rem;
+}
+
+.credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
+}
+
+.credential {
+  background: var(--brand-sand);
+  border-radius: 999px;
+  color: var(--brand-deep-green);
+  font-size: var(--type-ui);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
+  text-transform: uppercase;
+}
+
+.cards {
+  display: grid;
+  gap: 1.3rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.card,
+.post {
+  border-radius: 18px;
+  display: block;
+  padding: 1.8rem;
+  text-decoration: none;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.card {
+  background: var(--brand-white);
+  border: 1px solid rgba(34, 57, 47, 0.1);
+}
+
+.card:hover,
+.card:focus-visible {
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-4px);
+}
+
+.card h3,
+.post h3 {
+  font-size: var(--type-card-title);
+  margin: 0.55rem 0;
+}
+
+.card h3 {
+  color: var(--brand-deep-green);
+}
+
+.tag,
+.more,
+.postDate {
+  color: var(--brand-gold-text);
+  font-size: var(--type-ui);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.more {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.practice {
+  background: #fff;
+  border: 1px solid rgba(34, 57, 47, 0.1);
+  border-radius: 24px;
+  gap: 0;
+  margin-top: 3rem;
+  overflow: hidden;
+}
+
+.practice img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.practiceCopy {
+  padding: clamp(2rem, 5vw, 3.5rem);
+}
+
+.practiceCopy h3 {
+  color: var(--brand-deep-green);
+  font-size: 1.8rem;
+  margin-bottom: 0.7rem;
+}
+
+.note {
+  background: var(--brand-sand);
+  border-left: 3px solid var(--brand-gold);
+  border-radius: 18px;
+  color: #43504a;
+  font-size: var(--type-legal);
+  line-height: var(--line-reading);
+  margin-top: 2.5rem;
+  padding: 1.5rem 1.8rem;
+}
+
+.kitIntro {
+  background: var(--brand-deep-green);
+  border-radius: 24px;
+  color: var(--brand-light-sand);
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr auto;
+  margin-top: 2.5rem;
+  padding: clamp(2rem, 5vw, 3.5rem);
+}
+
+.kitIntro h3 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.kitIntro p {
+  margin-top: 0.6rem;
+  max-width: 62ch;
+}
+
+.philosophy {
+  background: var(--brand-deep-green);
+  color: var(--brand-light-sand);
+}
+
+.philosophyGrid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+}
+
+.philosophy img {
+  filter: grayscale(1);
+  height: 100%;
+  object-fit: cover;
+}
+
+.quote {
+  align-self: center;
+  padding: clamp(2.5rem, 7vw, 5rem);
+}
+
+.quote blockquote {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-style: italic;
+  line-height: var(--line-reading);
+}
+
+.quote cite {
+  color: var(--brand-gold-light);
+  display: block;
+  font-size: var(--type-ui);
+  font-style: normal;
+  letter-spacing: 0.17em;
+  margin-top: 1.4rem;
+  text-transform: uppercase;
+}
+
+.post {
+  background: rgba(253, 252, 250, 0.06);
+  border: 1px solid rgba(253, 252, 250, 0.14);
+}
+
+.sectionDark :global(.eyebrow),
+.kitIntro :global(.eyebrow),
+.sectionDark .postDate {
+  color: var(--brand-gold-light);
+}
+
+.post h3 {
+  color: var(--brand-light-sand);
+}
+
+.post p {
+  color: #c3cec6;
+  font-size: var(--type-card);
+  line-height: var(--line-reading);
+}
+
+.contactItem + .contactItem {
+  margin-top: 1.4rem;
+}
+
+.contactLabel {
+  color: var(--brand-gold-text);
+  font-size: var(--type-ui);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.contactItem a {
+  color: var(--brand-deep-green);
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.map {
+  border: 1px solid rgba(34, 57, 47, 0.12);
+  border-radius: 18px;
+  min-height: 350px;
+  overflow: hidden;
+}
+
+.map iframe {
+  border: 0;
+  height: 100%;
+  min-height: 350px;
+  width: 100%;
+}
+
+.whatsapp {
+  align-items: center;
+  background: #08783e;
+  border-radius: 50%;
+  bottom: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  display: flex;
+  height: 56px;
+  isolation: isolate;
+  justify-content: center;
+  position: fixed;
+  right: 1.25rem;
+  text-decoration: none;
+  touch-action: manipulation;
+  width: 56px;
+  z-index: 90;
+}
+
+.whatsapp:hover {
+  background: #066f38;
+}
+
+.whatsapp:focus-visible {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--brand-deep-green), 0 8px 24px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+.whatsappIcon {
+  display: block;
+  height: 29px;
+  width: 29px;
+}
+
+.whatsappTooltip {
+  background: var(--brand-deep-green);
+  border-radius: 6px;
+  color: #fff;
+  font-size: var(--type-ui);
+  font-weight: 500;
+  line-height: 1.2;
+  opacity: 0;
+  padding: 0.45rem 0.7rem;
+  pointer-events: none;
+  position: absolute;
+  right: calc(100% + 0.75rem);
+  top: 50%;
+  transform: translate(6px, -50%);
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+  visibility: hidden;
+  white-space: nowrap;
+}
+
+.whatsapp:hover .whatsappTooltip,
+.whatsapp:focus-visible .whatsappTooltip {
+  opacity: 1;
+  transform: translate(0, -50%);
+  visibility: visible;
+}
+
+@media (max-width: 820px) {
+  .heroGrid,
+  .aboutGrid,
+  .contactGrid,
+  .practice,
+  .philosophyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 7rem;
+  }
+
+  .heroImage {
+    margin-inline: auto;
+    max-width: 320px;
+  }
+
+  .aboutImage {
+    margin-inline: auto;
+    max-width: 360px;
+  }
+
+  .practice img,
+  .philosophy img {
+    max-height: 460px;
+    width: 100%;
+  }
+
+  .kitIntro {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .actions a {
+    width: 100%;
+  }
+
+  .whatsapp {
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+    height: 52px;
+    right: 0.75rem;
+    width: 52px;
+  }
+
+  .whatsappIcon {
+    height: 27px;
+    width: 27px;
+  }
+
+  .whatsappTooltip {
+    bottom: calc(100% + 0.6rem);
+    right: 0;
+    top: auto;
+    transform: translateY(6px);
+  }
+
+  .whatsapp:hover .whatsappTooltip,
+  .whatsapp:focus-visible .whatsappTooltip {
+    transform: translateY(0);
+  }
+}

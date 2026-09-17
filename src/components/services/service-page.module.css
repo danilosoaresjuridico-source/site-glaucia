@@ -1,0 +1,82 @@
+.hero {
+  background: linear-gradient(165deg, var(--brand-light-sand), var(--brand-sand));
+  padding: 9rem 5vw 4rem;
+}
+
+.wrap {
+  margin-inline: auto;
+  max-width: 780px;
+}
+
+.hero h1 {
+  color: var(--brand-deep-green);
+  font-size: clamp(2.4rem, 6vw, 3.7rem);
+}
+
+.breadcrumbs {
+  color: #536158;
+  font-size: var(--type-ui);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumbs a {
+  color: var(--brand-deep-green);
+}
+
+.content {
+  line-height: var(--line-reading);
+  padding: clamp(3rem, 7vw, 4.5rem) 5vw;
+}
+
+.content p + p {
+  margin-top: 1.25rem;
+}
+
+.note {
+  background: var(--brand-sand);
+  border-left: 3px solid var(--brand-gold);
+  border-radius: 16px;
+  color: #43504a;
+  font-size: var(--type-legal);
+  line-height: var(--line-reading);
+  margin: 2rem 0;
+  padding: 1.4rem 1.7rem;
+}
+
+.cta {
+  background: var(--brand-deep-green);
+  border-radius: 22px;
+  margin-top: 2.5rem;
+  padding: clamp(2rem, 6vw, 2.8rem);
+  text-align: center;
+}
+
+.cta p {
+  color: var(--brand-light-sand);
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(1.45rem, 4vw, 1.8rem);
+  font-style: italic;
+  margin-bottom: 1.3rem;
+  margin-inline: auto;
+}
+
+.cta a {
+  background: var(--brand-gold);
+}
+
+.back {
+  color: #526158;
+  display: block;
+  font-size: var(--type-ui);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-top: 2rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.noBreak {
+  white-space: nowrap;
+}
