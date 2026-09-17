@@ -4,6 +4,11 @@ import test from "node:test";
 
 const kits = JSON.parse(readFileSync(new URL("../src/content/kits.json", import.meta.url), "utf8"));
 
+const officialCheckouts = {
+  "KF-01": "https://pay.kiwify.com.br/gTxAIDr",
+  "KF-05": "https://pay.kiwify.com.br/yT9ZvJS",
+};
+
 test("catálogo contém sete kits na ordem controladora", () => {
   assert.deepEqual(
     kits.map((kit) => kit.id),
@@ -30,11 +35,7 @@ test("regras comerciais não permitem venda dos kits futuros", () => {
     if (kit.status === "ativo") {
       assert.equal(kit.preco, 37);
       assert.ok(kit.capa);
-      if (kit.id === "KF-01") {
-        assert.equal(kit.checkout_url, "https://pay.kiwify.com.br/gTxAIDr");
-      } else {
-        assert.equal(kit.checkout_url, null, `${kit.id} permanece sem checkout autorizado`);
-      }
+      assert.equal(kit.checkout_url, officialCheckouts[kit.id], `${kit.id} usa o checkout oficial`);
     } else {
       assert.equal(kit.preco, null);
       assert.equal(kit.checkout_url, null);

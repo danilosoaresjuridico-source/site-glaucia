@@ -93,18 +93,27 @@ test("KF-01 mostra checkout oficial e Offer correspondente", async ({ page }) =>
   });
 });
 
-test("KF-05 permanece sem checkout e sem Offer", async ({ page }) => {
+test("KF-05 mostra checkout oficial e Offer correspondente", async ({ page }) => {
   await page.goto("/kit/kit-renovacao");
   await expect(page.getByText("R$ 37", { exact: true })).toBeVisible();
-  await expect(page.locator('a[href*="kiwify"]')).toHaveCount(0);
-  await expect(page.getByText(/checkout oficial/i)).toBeVisible();
+  const checkout = page.getByRole("link", { name: "Quero este kit · R$ 37" });
+  await expect(checkout).toHaveAttribute("href", "https://pay.kiwify.com.br/yT9ZvJS");
+  await expect(checkout).toHaveAttribute("target", "_blank");
+  await expect(checkout).toHaveAttribute("rel", "noopener noreferrer");
+  await expect(page.getByText(/checkout oficial/i)).toHaveCount(0);
 
   const product = await page.locator('script[type="application/ld+json"]').evaluateAll((scripts) =>
     scripts
       .map((script) => JSON.parse(script.textContent || "{}"))
       .find((data) => data["@type"] === "Product"),
   );
-  expect(product.offers).toBeUndefined();
+  expect(product.offers).toEqual({
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+    price: 37,
+    priceCurrency: "BRL",
+    url: "https://pay.kiwify.com.br/yT9ZvJS",
+  });
 });
 
 test("menu móvel é operável por teclado e restaura foco", async ({ page }) => {
