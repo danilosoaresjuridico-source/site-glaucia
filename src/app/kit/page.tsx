@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   },
 };
 
+const availableKits = kits.filter((kit) => kit.status === "ativo");
+const upcomingKits = kits.filter((kit) => kit.status === "em_breve");
+
 export default function KitMapPage() {
   return (
     <main id="conteudo-principal" className={styles.page}>
@@ -35,8 +38,17 @@ export default function KitMapPage() {
           <p className="eyebrow">O mapa</p>
           <h2 id="territories-title">Os sete territórios</h2>
           <p className={styles.sectionIntro}>Sete estados, sete caminhos de volta.</p>
-          <div className={styles.grid}>
-            {kits.map((kit) => <KitCard kit={kit} key={kit.id} />)}
+          <div className={styles.catalogGroup}>
+            <p className={styles.groupTitle}>Disponíveis agora</p>
+            <div className={`${styles.grid} ${styles.availableGrid}`} data-kit-group="available">
+              {availableKits.map((kit) => <KitCard kit={kit} key={kit.id} />)}
+            </div>
+          </div>
+          <div className={styles.catalogGroup}>
+            <p className={styles.groupTitle}>Em breve</p>
+            <div className={`${styles.grid} ${styles.upcomingGrid}`} data-kit-group="upcoming">
+              {upcomingKits.map((kit) => <KitCard kit={kit} key={kit.id} />)}
+            </div>
           </div>
         </div>
       </section>

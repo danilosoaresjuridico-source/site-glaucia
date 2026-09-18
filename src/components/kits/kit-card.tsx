@@ -9,8 +9,9 @@ export function KitCard({ kit }: { kit: KitCatalogItem }) {
   const style = { "--kit-color": kit.cor_primaria } as CSSProperties;
 
   return (
-    <KitCardView slug={kit.slug} status={kit.status}>
+    <KitCardView slug={kit.slug} status={kit.status} className={styles.cardView}>
       <Link
+        data-kit-card={kit.id}
         href={`/kit/${kit.slug}`}
         className={`${styles.card} ${kit.status === "em_breve" ? styles.cardSoon : ""}`}
         style={style}

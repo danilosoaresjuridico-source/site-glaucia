@@ -12,7 +12,7 @@ const officialCheckouts = {
 test("catálogo contém sete kits na ordem controladora", () => {
   assert.deepEqual(
     kits.map((kit) => kit.id),
-    ["KF-01", "KF-02", "KF-04", "KF-05", "KF-03", "KF-06", "KF-07"],
+    ["KF-01", "KF-05", "KF-02", "KF-04", "KF-03", "KF-06", "KF-07"],
   );
 });
 
