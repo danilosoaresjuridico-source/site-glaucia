@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { FrequencyFlow } from "@/components/decorative/frequency-flow";
+import { InstagramIcon } from "@/components/icons/instagram-icon";
 import { WhatsAppIcon } from "@/components/icons/whatsapp-icon";
 import { JsonLd } from "@/components/seo/json-ld";
 import { services } from "@/content/services";
@@ -175,11 +176,17 @@ export default function HomePage() {
             <div>
               <div className={styles.contactItem}>
                 <p className={styles.contactLabel}>WhatsApp</p>
-                <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">(17) 99682-3466</a>
+                <a className={styles.contactSocialLink} data-contact-link="whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer">
+                  <WhatsAppIcon className={styles.contactSocialIcon} />
+                  <span>(17) 99682-3466</span>
+                </a>
               </div>
               <div className={styles.contactItem}>
                 <p className={styles.contactLabel}>Instagram</p>
-                <a href={site.instagram} target="_blank" rel="noopener noreferrer">@terapiaglau</a>
+                <a className={styles.contactSocialLink} data-contact-link="instagram" href={site.instagram} target="_blank" rel="noopener noreferrer">
+                  <InstagramIcon className={styles.contactSocialIcon} />
+                  <span>@terapiaglau</span>
+                </a>
               </div>
               <div className={styles.contactItem}>
                 <p className={styles.contactLabel}>Endereço</p>

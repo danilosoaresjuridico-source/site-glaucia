@@ -330,6 +330,40 @@
   text-decoration: none;
 }
 
+.contactSocialLink {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.55rem;
+}
+
+.contactSocialLink span {
+  text-decoration-color: transparent;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.contactSocialIcon {
+  color: var(--brand-deep-green);
+  flex: 0 0 auto;
+  height: 1.35rem;
+  transition: color 180ms ease, transform 180ms ease;
+  width: 1.35rem;
+}
+
+.contactSocialLink:hover span,
+.contactSocialLink:focus-visible span {
+  color: var(--brand-gold-text);
+  text-decoration-color: currentColor;
+}
+
+.contactSocialLink:hover .contactSocialIcon,
+.contactSocialLink:focus-visible .contactSocialIcon {
+  color: var(--brand-gold-text);
+  transform: translateY(-1px);
+}
+
 .map {
   border: 1px solid rgba(34, 57, 47, 0.12);
   border-radius: 18px;

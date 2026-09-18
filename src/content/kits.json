@@ -17,6 +17,23 @@
     "capa": "/images/kits/kit-acalmamento.jpg"
   },
   {
+    "id": "KF-05",
+    "slug": "kit-renovacao",
+    "nome": "Kit Frequencial de Renovação e Leveza",
+    "colecao": "kits-frequenciais",
+    "nivel": "sistema",
+    "status": "ativo",
+    "preco": 37,
+    "territorio": ["Renovação", "espaço", "frescor", "leveza"],
+    "verbo": "Renovar",
+    "cor_primaria": "#BFE3D0",
+    "paleta": ["#BFE3D0", "#CFE3A8", "#F6F8F5", "#DCEDE8", "#D8C48A", "#3E6B57"],
+    "frase_curta": "Quando o peso acumulou e falta espaço.",
+    "linha_apoio": "Para saturação mental, excesso de compromissos e vontade legítima de recomeçar.",
+    "checkout_url": "https://pay.kiwify.com.br/yT9ZvJS",
+    "capa": "/images/kits/kit-renovacao.jpg"
+  },
+  {
     "id": "KF-02",
     "slug": "kit-recomposicao",
     "nome": "Kit Frequencial de Recomposição Interior",
@@ -49,23 +66,6 @@
     "linha_apoio": "Para quando o cuidado vem sempre por último e o corpo pede colo antes de pedir energia.",
     "checkout_url": null,
     "capa": null
-  },
-  {
-    "id": "KF-05",
-    "slug": "kit-renovacao",
-    "nome": "Kit Frequencial de Renovação e Leveza",
-    "colecao": "kits-frequenciais",
-    "nivel": "sistema",
-    "status": "ativo",
-    "preco": 37,
-    "territorio": ["Renovação", "espaço", "frescor", "leveza"],
-    "verbo": "Renovar",
-    "cor_primaria": "#BFE3D0",
-    "paleta": ["#BFE3D0", "#CFE3A8", "#F6F8F5", "#DCEDE8", "#D8C48A", "#3E6B57"],
-    "frase_curta": "Quando o peso acumulou e falta espaço.",
-    "linha_apoio": "Para saturação mental, excesso de compromissos e vontade legítima de recomeçar.",
-    "checkout_url": "https://pay.kiwify.com.br/yT9ZvJS",
-    "capa": "/images/kits/kit-renovacao.jpg"
   },
   {
     "id": "KF-03",

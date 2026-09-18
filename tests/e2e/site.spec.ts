@@ -14,9 +14,9 @@ const serviceSlugs = [
 
 const kitSlugs = [
   "kit-acalmamento",
+  "kit-renovacao",
   "kit-recomposicao",
   "kit-acolhimento",
-  "kit-renovacao",
   "kit-clareza",
   "kit-fluxo",
   "kit-autoafeto",
@@ -60,6 +60,94 @@ test("URLs HTML antigas redirecionam diretamente com 308", async ({ request }) =
 test("slug de kit desconhecido retorna 404 real", async ({ request }) => {
   const response = await request.get("/kit/kit-inexistente");
   expect(response.status()).toBe(404);
+});
+
+test("catálogo agrupa ativos primeiro com cards alinhados e responsivos", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/kit");
+
+  const allCards = page.locator("[data-kit-card]");
+  await expect(allCards).toHaveCount(7);
+  expect(await allCards.evaluateAll((cards) => cards.map((card) => card.getAttribute("data-kit-card")))).toEqual([
+    "KF-01",
+    "KF-05",
+    "KF-02",
+    "KF-04",
+    "KF-03",
+    "KF-06",
+    "KF-07",
+  ]);
+
+  const available = page.locator('[data-kit-group="available"] [data-kit-card]');
+  const upcoming = page.locator('[data-kit-group="upcoming"] [data-kit-card]');
+  await expect(available).toHaveCount(2);
+  await expect(upcoming).toHaveCount(5);
+  expect(await available.locator("h3").allTextContents()).toEqual([
+    "Kit Frequencial de Acalmamento Interior",
+    "Kit Frequencial de Renovação e Leveza",
+  ]);
+  expect(await upcoming.locator("h3").allTextContents()).toEqual([
+    "Kit Frequencial de Recomposição Interior",
+    "Kit Frequencial de Acolhimento e Vitalidade",
+    "Kit Frequencial de Clareza e Ânimo",
+    "Kit Frequencial de Clareza e Fluxo",
+    "Kit Frequencial de Autoafeto e Alegria Suave",
+  ]);
+
+  const activeGeometry = await available.evaluateAll((cards) => cards.map((card) => {
+    const cardRect = card.getBoundingClientRect();
+    const wrapperRect = card.parentElement!.getBoundingClientRect();
+    return { cardHeight: cardRect.height, wrapperHeight: wrapperRect.height, x: cardRect.x, y: cardRect.y };
+  }));
+  expect(Math.abs(activeGeometry[0].y - activeGeometry[1].y)).toBeLessThanOrEqual(1);
+  expect(activeGeometry[0].x).toBeLessThan(activeGeometry[1].x);
+  expect(Math.abs(activeGeometry[0].cardHeight - activeGeometry[1].cardHeight)).toBeLessThanOrEqual(1);
+  expect(activeGeometry.every(({ cardHeight, wrapperHeight }) => Math.abs(cardHeight - wrapperHeight) <= 1)).toBe(true);
+
+  const upcomingGeometry = await upcoming.evaluateAll((cards) => cards.map((card) => {
+    const rect = card.getBoundingClientRect();
+    return { height: rect.height, y: Math.round(rect.y) };
+  }));
+  for (const rowY of new Set(upcomingGeometry.map(({ y }) => y))) {
+    const rowHeights = upcomingGeometry.filter(({ y }) => y === rowY).map(({ height }) => height);
+    expect(Math.max(...rowHeights) - Math.min(...rowHeights)).toBeLessThanOrEqual(1);
+  }
+
+  await page.setViewportSize({ width: 360, height: 800 });
+  const mobileGeometry = await allCards.evaluateAll((cards) => cards.map((card) => {
+    const rect = card.getBoundingClientRect();
+    return { right: rect.right, width: rect.width, x: rect.x, y: rect.y };
+  }));
+  expect(new Set(mobileGeometry.map(({ y }) => Math.round(y))).size).toBe(7);
+  expect(mobileGeometry.every(({ right, width, x }) => x >= 0 && right <= 360 && width > 0)).toBe(true);
+});
+
+test("contato exibe ícones locais e preserva links acessíveis", async ({ page }) => {
+  await page.goto("/#contato");
+  for (const [network, href, label] of [
+    ["whatsapp", "https://wa.me/5517996823466", "(17) 99682-3466"],
+    ["instagram", "https://instagram.com/terapiaglau", "@terapiaglau"],
+  ] as const) {
+    const link = page.locator(`[data-contact-link="${network}"]`);
+    await expect(link).toHaveAttribute("href", href);
+    await expect(link).toContainText(label);
+    const icon = link.locator("svg");
+    await expect(icon).toBeVisible();
+    await expect(icon).toHaveAttribute("aria-hidden", "true");
+    await expect(icon).toHaveAttribute("focusable", "false");
+
+    const before = await icon.evaluate((element) => getComputedStyle(element).color);
+    await link.hover();
+    const after = await icon.evaluate((element) => getComputedStyle(element).color);
+    expect(after).not.toBe(before);
+
+    const alignment = await link.evaluate((element) => {
+      const iconRect = element.querySelector("svg")!.getBoundingClientRect();
+      const textRect = element.querySelector("span")!.getBoundingClientRect();
+      return Math.abs((iconRect.top + iconRect.bottom) / 2 - (textRect.top + textRect.bottom) / 2);
+    });
+    expect(alignment).toBeLessThanOrEqual(1);
+  }
 });
 
 test("kits futuros não exibem preço, compra ou formulário", async ({ page }) => {

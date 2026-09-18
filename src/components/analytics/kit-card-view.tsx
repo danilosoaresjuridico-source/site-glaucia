@@ -8,10 +8,12 @@ export function KitCardView({
   slug,
   status,
   children,
+  className,
 }: {
   slug: string;
   status: KitStatus;
   children: React.ReactNode;
+  className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -33,5 +35,5 @@ export function KitCardView({
     return () => observer.disconnect();
   }, [slug, status]);
 
-  return <div ref={ref}>{children}</div>;
+  return <div ref={ref} className={className} data-kit-card-view>{children}</div>;
 }
